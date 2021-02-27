@@ -9,13 +9,14 @@ import SwiftUI
 
 class MovieListManager: ObservableObject {
     
-    @Published var idbResponse = IDBResponse(items: [Item()])
+    @Published var idbResponse = IDBResponse(items: [Item](), errorMessage: "")
+    var images = [UIImage]()
     
     init() {
-        getLoadedMovies()
+        loadMovies()
     }
     
-    func getLoadedMovies() {
+    func loadMovies() {
         
         guard let url = URL(string: "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r") else {
             fatalError("invalid URL string")
