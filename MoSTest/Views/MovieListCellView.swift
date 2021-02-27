@@ -9,26 +9,20 @@ import SwiftUI
 
 struct MovieListCellView: View {
     var item: Item
-
+    
     @State private var showCrewDetails = false
     
     var body: some View {
         VStack {
             HStack {
-                Button {} label: {
-                    HStack {
-                        UrlImageView(urlString: item.image)
-                            .scaledToFit()
-                            .frame(width: 100, height: 100, alignment: .center)
-                        VStack {
-                            Text(item.fullTitle)
-                            Text("Rating: \(item.imDbRating)")
-                        }
-                    }
+                UrlImageView(urlString: item.image)
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                VStack {
+                    Text(item.title)
+                    Text("Rating: \(item.imDbRating)")
                 }
-                .onTapGesture {
-                    print("moving to detail view")
-                }
+                
                 
                 Button {} label: {
                     if !showCrewDetails {
@@ -48,6 +42,7 @@ struct MovieListCellView: View {
                     showCrewDetails.toggle()
                 }
             }
+            
             if showCrewDetails {
                 Text(item.crew)
             }
