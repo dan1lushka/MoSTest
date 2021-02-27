@@ -23,7 +23,6 @@ struct MovieListRowView: View {
                     Text("Rating: \(item.imDbRating)")
                 }
                 
-                
                 Button {} label: {
                     if !showCrewDetails {
                         Image("Icon-ChevronThinDown")

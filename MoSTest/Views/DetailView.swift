@@ -10,21 +10,35 @@ import SwiftUI
 struct DetailView: View {
     var movieItem: Item
     
+    @State private var isViewUp = true
+
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                UrlImageView(urlString: movieItem.image)
-                    .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                    .scaledToFill()
-                Spacer()
-                Text(movieItem.fullTitle)
-                Text("Rating: \(movieItem.imDbRating)")
-                Text(movieItem.crew)
-                Spacer(minLength: geometry.size.height / 2)
+                if isViewUp {
+                    UrlImageView(urlString: movieItem.image)
+                        .frame(width: geometry.size.width, height: geometry.size.height / 3)
+                        .scaledToFill()
+                    Spacer()
+                    Text(movieItem.fullTitle)
+                    Text("Rating: \(movieItem.imDbRating)")
+                    Text(movieItem.crew)
+                    Spacer(minLength: geometry.size.height / 2)
+                } else {
+                    Spacer()
+                    Text(movieItem.crew)
+                    Text("Rating: \(movieItem.imDbRating)")
+                    Text(movieItem.fullTitle)
+                    UrlImageView(urlString: movieItem.image)
+                        .frame(width: geometry.size.width, height: geometry.size.height / 3)
+                        .scaledToFill()
+                }
             }
         }
         .navigationTitle(Text("\(movieItem.title)"))
-        .navigationBarItems(trailing: Button(action: {}, label: {
+        .navigationBarItems(trailing: Button(action: {
+            isViewUp.toggle()
+        }, label: {
             Image("Icon-ArrowsUpDown")
         }))
     }
