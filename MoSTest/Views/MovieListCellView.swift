@@ -8,29 +8,29 @@
 import SwiftUI
 
 struct MovieListCellView: View {
-    var fullTitle: String
-    var imageURL: String
-    var rating: String
-    var crew: String
-    
+    var item: Item
+
     @State private var showCrewDetails = false
     
     var body: some View {
-        
         VStack {
-            HStack(alignment: .center, spacing: 10) {
-                UrlImageView(urlString: imageURL)
-                    .scaledToFit()
-                    .frame(width: 100, height: 100, alignment: .center)
-                
-                VStack {
-                    Text(fullTitle)
-                    Text("Rating: \(rating)")
+            HStack {
+                Button {} label: {
+                    HStack {
+                        UrlImageView(urlString: item.image)
+                            .scaledToFit()
+                            .frame(width: 100, height: 100, alignment: .center)
+                        VStack {
+                            Text(item.fullTitle)
+                            Text("Rating: \(item.imDbRating)")
+                        }
+                    }
+                }
+                .onTapGesture {
+                    print("moving to detail view")
                 }
                 
-                Button(action: {
-                    showCrewDetails.toggle()
-                }, label: {
+                Button {} label: {
                     if !showCrewDetails {
                         Image("Icon-ChevronThinDown")
                             .clipShape(Circle())
@@ -43,18 +43,21 @@ struct MovieListCellView: View {
                             .overlay(Circle().stroke(Color.black, lineWidth: 1))
                             .rotationEffect(.degrees(180))
                     }
-                })
+                }
+                .onTapGesture {
+                    showCrewDetails.toggle()
+                }
             }
             if showCrewDetails {
-                Text(crew)
+                Text(item.crew)
             }
         }
-        
     }
 }
 
 struct MovieListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListCellView(fullTitle: "aaaaa", imageURL: "", rating: "1", crew: "")
+        MovieListCellView(item: Item(id: "1", rank: "1", title: "1", fullTitle: "1", year: "1", image: "1", crew: "1", imDbRating: "1", imDbRatingCount: "1"))
     }
 }
+
