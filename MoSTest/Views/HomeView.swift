@@ -20,6 +20,9 @@ struct HomeView: View {
                         MovieListCellView(fullTitle: movie.fullTitle, imageURL: movie.image, rating: movie.imDbRating, crew: movie.crew)
                     }
                 }
+                if movieListManager.idbResponse.items.count == 0 {
+                    Text("No Data")
+                }
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
         }

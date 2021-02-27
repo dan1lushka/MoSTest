@@ -10,7 +10,6 @@ import SwiftUI
 class MovieListManager: ObservableObject {
     
     @Published var idbResponse = IDBResponse(items: [Item](), errorMessage: "")
-    var images = [UIImage]()
     
     init() {
         loadMovies()
