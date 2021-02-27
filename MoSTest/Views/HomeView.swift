@@ -13,21 +13,34 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(movieListManager.idbResponse.items) { movie in
-                    ZStack {
-                        Color.gray
-                        MovieListCellView(fullTitle: movie.fullTitle, imageURL: movie.image, rating: movie.imDbRating, crew: movie.crew)
+            VStack {
+                if movieListManager.idbResponse.items.count > 0 {
+                    List {
+                        ForEach(movieListManager.idbResponse.items) { movie in
+                            ZStack {
+                                Color.gray
+                                MovieListCellView(fullTitle: movie.fullTitle, imageURL: movie.image, rating: movie.imDbRating, crew: movie.crew)
+                            }
+                        }
+                        .onDelete(perform: { indexSet in
+                            movieListManager.delete(at: indexSet)
+                        })
                     }
-                }
-                if movieListManager.idbResponse.items.count == 0 {
+                } else {
                     Text("No Data")
                 }
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
+                .toolbar(content: {
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
+                })
         }
+       
     }
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
