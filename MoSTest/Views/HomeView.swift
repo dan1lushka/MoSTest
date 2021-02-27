@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var movieListManager: MovieListManager
+    @Environment(\.editMode) var editMode
     
     var body: some View {
         NavigationView {
@@ -19,28 +20,26 @@ struct HomeView: View {
                         ForEach(movieListManager.idbResponse.items) { movie in
                             ZStack {
                                 Color.gray
-                                MovieListCellView(fullTitle: movie.fullTitle, imageURL: movie.image, rating: movie.imDbRating, crew: movie.crew)
+                                MovieListCellView(item: movie)
                             }
                         }
                         .onDelete(perform: { indexSet in
                             movieListManager.delete(at: indexSet)
                         })
+                        .onMove { (indeces, newOffset) in
+                            movieListManager.idbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
+                        }
                     }
                 } else {
                     Text("No Data")
                 }
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
-                .toolbar(content: {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
-                })
+            .navigationBarItems(trailing: EditButton())
         }
        
     }
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
