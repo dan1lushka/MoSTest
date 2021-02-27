@@ -14,12 +14,15 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(movieListManager.items) { movie in
-                    NavigationLink(
-                        destination: Text("To be added"),
-                        label: {
-                            Text("To Be added")
+                ForEach(movieListManager.idbResponse.items) { movie in
+                    ZStack {
+                            Color.gray
+                        NavigationLink(
+                            destination: Text("To be added"),
+                            label: {
+                                MovieListCellView(fullTitle: movie.fullTitle, imageURL: movie.image, rating: movie.imDbRating)
                         })
+                    }
                 }
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
