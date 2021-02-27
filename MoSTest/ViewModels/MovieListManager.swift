@@ -5,12 +5,35 @@
 //  Created by Daniel Rybak on 27/02/2021.
 //
 
-import Foundation
+import SwiftUI
 
 class MovieListManager: ObservableObject {
-    @Published var items: [Movie] = [Movie(id: "1", rank: 1, title: "", fullTitle: "", year: 1, image: "", crew: "", imDbRating: 1.0, imDbRatingCount: 1)]
+    
+    @Published var idbResponse = IDBResponse(items: [Item()])
     
     init() {
+        getLoadedMovies()
+    }
+    
+    func getLoadedMovies() {
         
+        guard let url = URL(string: "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r") else {
+            fatalError("invalid URL string")
+        }
+        
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                if let decodedResponse = try? JSONDecoder().decode(IDBResponse.self, from: data) {
+                    DispatchQueue.main.async {
+                        self.idbResponse = decodedResponse
+                    }
+                    return
+                }
+            }
+            print("Fetch failed \(error?.localizedDescription ?? "Unknown error")")
+        }.resume()
     }
 }
+
