@@ -11,7 +11,7 @@ struct HomeView: View {
     
     @ObservedObject var movieListManager: MovieListManager
     @State private var isPresented = false
-        
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -34,13 +34,21 @@ struct HomeView: View {
                         }
                     }
                 } else {
+                    Spacer()
                     Text("No Data")
+                    Spacer()
+                    Button(action: {
+                        movieListManager.loadMovies()
+                    }) {
+                        Text("Fetch Data")
+                    }
+                    
                 }
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
             .navigationBarItems(trailing: EditButton())
         }
-       
+        
     }
 }
 
