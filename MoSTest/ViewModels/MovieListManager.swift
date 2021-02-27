@@ -43,5 +43,9 @@ class MovieListManager: ObservableObject {
             idbResponse.items.remove(at: index)
         }
     }
+    
+    func move(indeces: IndexSet, newOffset: Int) {
+        idbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
+    }
 }
 
