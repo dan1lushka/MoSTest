@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State private var movies = [Movie(id: "1", rank: 1, title: "", fullTitle: "", year: 1, image: "", crew: "", imDbRating: 1.0, imDbRatingCount: 1)]
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List {
+                ForEach(movies) { movie in
+                    NavigationLink(
+                        destination: Text("To be added"),
+                        label: {
+                            Text("To Be added")
+                        })
+                }
+            }
+            .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
+        }
     }
 }
 
