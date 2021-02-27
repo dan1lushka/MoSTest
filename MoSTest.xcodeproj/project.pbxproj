@@ -52,6 +52,9 @@
 		C838B0C225EA800200A68BD0 /* MoSTest */ = {
 			isa = PBXGroup;
 			children = (
+				C838B0D625EA815D00A68BD0 /* ViewModels */,
+				C838B0D525EA815700A68BD0 /* Views */,
+				C838B0D425EA815100A68BD0 /* Models */,
 				C838B0C325EA800200A68BD0 /* MoSTestApp.swift */,
 				C838B0C525EA800200A68BD0 /* ContentView.swift */,
 				C838B0C725EA800300A68BD0 /* Assets.xcassets */,
@@ -67,6 +70,27 @@
 				C838B0CA25EA800300A68BD0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C838B0D425EA815100A68BD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C838B0D525EA815700A68BD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C838B0D625EA815D00A68BD0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
