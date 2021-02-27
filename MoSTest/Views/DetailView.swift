@@ -11,17 +11,17 @@ struct DetailView: View {
     var movieItem: Item
     
     var body: some View {
-                GeometryReader { geometry in
-                    VStack(alignment: .leading) {
-                        UrlImageView(urlString: movieItem.image)
-                            .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                            .scaledToFill()
-                        Spacer()
-                        Text(movieItem.fullTitle)
-                        Text("Rating: \(movieItem.imDbRating)")
-                        Text(movieItem.crew)
-                        Spacer(minLength: geometry.size.height / 2)
-                    }
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                UrlImageView(urlString: movieItem.image)
+                    .frame(width: geometry.size.width, height: geometry.size.height / 3)
+                    .scaledToFill()
+                Spacer()
+                Text(movieItem.fullTitle)
+                Text("Rating: \(movieItem.imDbRating)")
+                Text(movieItem.crew)
+                Spacer(minLength: geometry.size.height / 2)
+            }
         }
         .navigationTitle(Text("\(movieItem.title)"))
         .navigationBarItems(trailing: Button(action: {}, label: {

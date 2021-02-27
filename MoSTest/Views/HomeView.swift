@@ -20,9 +20,8 @@ struct HomeView: View {
                         ForEach(movieListManager.idbResponse.items) { movie in
                             ZStack {
                                 Color.gray
-                                MovieListCellView(item: movie)
+                                MovieListRowView(item: movie)
                                 NavigationLink(destination: DetailView(movieItem: movie), isActive: $isPresented) {
-                                    
                                 }
                             }
                         }

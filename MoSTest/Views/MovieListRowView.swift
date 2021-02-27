@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MovieListCellView: View {
+struct MovieListRowView: View {
     var item: Item
     
     @State private var showCrewDetails = false
@@ -52,7 +52,7 @@ struct MovieListCellView: View {
 
 struct MovieListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListCellView(item: Item(id: "1", rank: "1", title: "1", fullTitle: "1", year: "1", image: "1", crew: "1", imDbRating: "1", imDbRatingCount: "1"))
+        MovieListRowView(item: Item(id: "1", rank: "1", title: "1", fullTitle: "1", year: "1", image: "1", crew: "1", imDbRating: "1", imDbRatingCount: "1"))
     }
 }
 
