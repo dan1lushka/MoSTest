@@ -16,12 +16,8 @@ struct HomeView: View {
             List {
                 ForEach(movieListManager.idbResponse.items) { movie in
                     ZStack {
-                            Color.gray
-                        NavigationLink(
-                            destination: Text("To be added"),
-                            label: {
-                                MovieListCellView(fullTitle: movie.fullTitle, imageURL: movie.image, rating: movie.imDbRating)
-                        })
+                        Color.gray
+                        MovieListCellView(fullTitle: movie.fullTitle, imageURL: movie.image, rating: movie.imDbRating, crew: movie.crew)
                     }
                 }
             }

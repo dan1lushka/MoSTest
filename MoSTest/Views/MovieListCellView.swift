@@ -11,22 +11,51 @@ struct MovieListCellView: View {
     var fullTitle: String
     var imageURL: String
     var rating: String
+    var crew: String
+    
+    @State private var showCrewDetails = false
     
     var body: some View {
-            HStack {
+        
+        VStack {
+            HStack(alignment: .center, spacing: 10) {
                 UrlImageView(urlString: imageURL)
                     .scaledToFit()
                     .frame(width: 100, height: 100, alignment: .center)
+                
+                
                 VStack {
                     Text(fullTitle)
                     Text("Rating: \(rating)")
                 }
+                
+                Button(action: {
+                    showCrewDetails.toggle()
+                }, label: {
+                    if !showCrewDetails {
+                        Image("Icon-ChevronThinDown")
+                            .clipShape(Circle())
+                            .padding(2)
+                            .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                    } else {
+                        Image("Icon-ChevronThinDown")
+                            .clipShape(Circle())
+                            .padding(2)
+                            .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                            .rotationEffect(.degrees(180))
+                    }
+                })
             }
+            if showCrewDetails {
+                Text(crew)
+            }
+        }
+        
     }
 }
 
 struct MovieListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListCellView(fullTitle: "aaaaa", imageURL: "", rating: "1")
+        MovieListCellView(fullTitle: "aaaaa", imageURL: "", rating: "1", crew: "")
     }
 }
