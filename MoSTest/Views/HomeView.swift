@@ -10,8 +10,8 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var movieListManager: MovieListManager
-    @Environment(\.editMode) var editMode
-    
+    @State private var isPresented = false
+        
     var body: some View {
         NavigationView {
             VStack {
@@ -21,6 +21,9 @@ struct HomeView: View {
                             ZStack {
                                 Color.gray
                                 MovieListCellView(item: movie)
+                                NavigationLink(destination: DetailView(movieItem: movie), isActive: $isPresented) {
+                                    
+                                }
                             }
                         }
                         .onDelete(perform: { indexSet in
