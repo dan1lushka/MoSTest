@@ -19,11 +19,9 @@ class UrlImageViewManager: ObservableObject {
     
     func loadImage() {
         if loadImageFromCache() {
-            print("Cache hit")
             return
         }
-        
-        print("Cache miss, loading from url")
+
         loadImageFromUrl()
     }
     
