@@ -9,12 +9,14 @@ import SwiftUI
 
 struct MovieListCellView: View {
     var fullTitle: String
-    var image: String
+    var imageURL: String
     var rating: String
     
     var body: some View {
             HStack {
-                Image(systemName: image)
+                UrlImageView(urlString: imageURL)
+                    .scaledToFit()
+                    .frame(width: 100, height: 100, alignment: .center)
                 VStack {
                     Text(fullTitle)
                     Text("Rating: \(rating)")
@@ -25,7 +27,6 @@ struct MovieListCellView: View {
 
 struct MovieListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListCellView(fullTitle: "aaaaa", image: "trash", rating: "1")
+        MovieListCellView(fullTitle: "aaaaa", imageURL: "", rating: "1")
     }
 }
-
