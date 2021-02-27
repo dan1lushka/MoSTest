@@ -9,12 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var movies = [Movie(id: "1", rank: 1, title: "", fullTitle: "", year: 1, image: "", crew: "", imDbRating: 1.0, imDbRatingCount: 1)]
+    @ObservedObject var movieListManager: MovieListManager
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(movies) { movie in
+                ForEach(movieListManager.items) { movie in
                     NavigationLink(
                         destination: Text("To be added"),
                         label: {
@@ -29,6 +29,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(movieListManager: MovieListManager())
     }
 }

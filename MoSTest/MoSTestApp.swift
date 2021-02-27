@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MoSTestApp: App {
+    
+    @StateObject var movieListManager = MovieListManager()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(movieListManager: movieListManager)
         }
     }
 }
