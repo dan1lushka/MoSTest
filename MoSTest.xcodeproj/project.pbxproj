@@ -16,6 +16,7 @@
 		C838B0E525EAAE3100A68BD0 /* MovieListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0E425EAAE3100A68BD0 /* MovieListCellView.swift */; };
 		C838B0F125EAC81000A68BD0 /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0F025EAC81000A68BD0 /* URLImageView.swift */; };
 		C838B0F425EAC8D400A68BD0 /* URLImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0F325EAC8D400A68BD0 /* URLImageManager.swift */; };
+		C838B0F725EAF8D300A68BD0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0F625EAF8D300A68BD0 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C838B0E425EAAE3100A68BD0 /* MovieListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCellView.swift; sourceTree = "<group>"; };
 		C838B0F025EAC81000A68BD0 /* URLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
 		C838B0F325EAC8D400A68BD0 /* URLImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageManager.swift; sourceTree = "<group>"; };
+		C838B0F625EAF8D300A68BD0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				C838B0C525EA800200A68BD0 /* HomeView.swift */,
 				C838B0E425EAAE3100A68BD0 /* MovieListCellView.swift */,
 				C838B0F025EAC81000A68BD0 /* URLImageView.swift */,
+				C838B0F625EAF8D300A68BD0 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C838B0DE25EA8B8100A68BD0 /* MovieListManager.swift in Sources */,
+				C838B0F725EAF8D300A68BD0 /* DetailView.swift in Sources */,
 				C838B0C625EA800200A68BD0 /* HomeView.swift in Sources */,
 				C838B0F125EAC81000A68BD0 /* URLImageView.swift in Sources */,
 				C838B0C425EA800200A68BD0 /* MoSTestApp.swift in Sources */,
