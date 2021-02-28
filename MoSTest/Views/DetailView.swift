@@ -11,7 +11,7 @@ struct DetailView: View {
     var movieItem: Item
     
     @State private var isViewUp = true
-
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
@@ -19,11 +19,10 @@ struct DetailView: View {
                     UrlImageView(urlString: movieItem.image)
                         .frame(width: geometry.size.width, height: geometry.size.height / 3)
                         .scaledToFill()
-                    Spacer()
                     Text(movieItem.fullTitle)
                     Text("Rating: \(movieItem.imDbRating)")
                     Text(movieItem.crew)
-                    Spacer(minLength: geometry.size.height / 2)
+                    Spacer()
                 } else {
                     Spacer()
                     Text(movieItem.crew)
@@ -37,7 +36,9 @@ struct DetailView: View {
         }
         .navigationTitle(Text("\(movieItem.title)"))
         .navigationBarItems(trailing: Button(action: {
-            isViewUp.toggle()
+            withAnimation(.linear(duration: 2)) {
+                isViewUp.toggle()
+            }
         }, label: {
             Image("Icon-ArrowsUpDown")
         }))
