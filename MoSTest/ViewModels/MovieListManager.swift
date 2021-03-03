@@ -9,14 +9,16 @@ import SwiftUI
 
 class MovieListManager: ObservableObject {
     
-    @Published var idbResponse = IDBResponse(items: [Item](), errorMessage: "")
+    @Published var idbResponse = IMDBResponse(items: [Item](), errorMessage: "")
 
-//    @Published var idbResponse = IDBResponse(items: [Item(id: "tt0111161", rank: "1", title: "aadada", fullTitle: "adawdawd", year: "1212", image: "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX128_CR0,3,128,176_AL_.jpg", crew: "aaaa", imDbRating: "12", imDbRatingCount: "aa")], errorMessage: "")
-
+    var example: IMDBResponse {
+        return IMDBResponse(items: [Item(id: "tt0111161", rank: "1", title: "aadada", fullTitle: "adawdawd", year: "1212", image: "square.fill", crew: "aaaa", imDbRating: "12", imDbRatingCount: "aa")], errorMessage: "")
+    }
+    
     init() {
         loadMovies()
     }
-
+    
     func loadMovies() {
         
         guard let url = URL(string: "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r") else {
@@ -27,7 +29,7 @@ class MovieListManager: ObservableObject {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                if let decodedResponse = try? JSONDecoder().decode(IDBResponse.self, from: data) {
+                if let decodedResponse = try? JSONDecoder().decode(IMDBResponse.self, from: data) {
                     DispatchQueue.main.async {
                         self.idbResponse = decodedResponse
                     }

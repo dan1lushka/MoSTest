@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct IDBResponse: Codable {
+struct IMDBResponse: Codable {
     var items: [Item]
     var errorMessage: String
 }
