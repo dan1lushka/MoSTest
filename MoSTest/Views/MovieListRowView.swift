@@ -49,9 +49,9 @@ struct MovieListRowView: View {
     }
 }
 
-struct MovieListCellView_Previews: PreviewProvider {
+struct MovieListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListRowView(item: Item(id: "1", rank: "1", title: "1", fullTitle: "1", year: "1", image: "1", crew: "1", imDbRating: "1", imDbRatingCount: "1"))
+        MovieListRowView(item: MovieListManager().example.imdbResponse.items.first!)
     }
 }
 
