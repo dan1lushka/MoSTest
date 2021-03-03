@@ -9,7 +9,7 @@ import SwiftUI
 
 class MovieListManager: ObservableObject {
     
-    @Published var idbResponse = IMDBResponse(items: [Item](), errorMessage: "")
+    @Published var imdbResponse = IMDBResponse(items: [Item](), errorMessage: "")
 
     var example: IMDBResponse {
         return IMDBResponse(items: [Item(id: "tt0111161", rank: "1", title: "aadada", fullTitle: "adawdawd", year: "1212", image: "square.fill", crew: "aaaa", imDbRating: "12", imDbRatingCount: "aa")], errorMessage: "")
@@ -31,7 +31,7 @@ class MovieListManager: ObservableObject {
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(IMDBResponse.self, from: data) {
                     DispatchQueue.main.async {
-                        self.idbResponse = decodedResponse
+                        self.imdbResponse = decodedResponse
                     }
                     return
                 }
@@ -42,12 +42,12 @@ class MovieListManager: ObservableObject {
     
     func delete(at indexSet: IndexSet) {
         for index in indexSet {
-            idbResponse.items.remove(at: index)
+            imdbResponse.items.remove(at: index)
         }
     }
     
     func move(indeces: IndexSet, newOffset: Int) {
-        idbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
+        imdbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
     }
 }
 
