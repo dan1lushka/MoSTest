@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+struct DetailsButton: View {
+    var body: some View {
+        Image("Icon-ChevronThinDown")
+            .clipShape(Circle())
+            .padding(2)
+            .overlay(Circle().stroke(Color.black, lineWidth: 1))
+            .rotationEffect(.degrees(180))
+    }
+}
+
 struct MovieListRowView: View {
     var item: Item
     
@@ -30,11 +40,7 @@ struct MovieListRowView: View {
                             .padding(2)
                             .overlay(Circle().stroke(Color.black, lineWidth: 1))
                     } else {
-                        Image("Icon-ChevronThinDown")
-                            .clipShape(Circle())
-                            .padding(2)
-                            .overlay(Circle().stroke(Color.black, lineWidth: 1))
-                            .rotationEffect(.degrees(180))
+                        DetailsButton()
                     }
                 }
                 .onTapGesture {
@@ -54,4 +60,6 @@ struct MovieListRowView_Previews: PreviewProvider {
         MovieListRowView(item: MovieListManager().example.imdbResponse.items.first!)
     }
 }
+
+
 
