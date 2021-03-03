@@ -13,9 +13,9 @@ struct MovieListView: View {
     @Binding var isPresented: Bool
     
     var body: some View {
-        if movieListManager.idbResponse.items.count > 0 {
+        if movieListManager.imdbResponse.items.count > 0 {
             List {
-                ForEach(movieListManager.idbResponse.items) { movie in
+                ForEach(movieListManager.imdbResponse.items) { movie in
                     ZStack {
                         Color.gray
                         MovieListRowView(item: movie)
@@ -27,7 +27,7 @@ struct MovieListView: View {
                     movieListManager.delete(at: indexSet)
                 })
                 .onMove { (indeces, newOffset) in
-                    movieListManager.idbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
+                    movieListManager.imdbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
                 }
             }
         }
@@ -36,7 +36,7 @@ struct MovieListView: View {
 
 struct MovieListView_Previews: PreviewProvider {
     let mlm = MovieListManager()
-
+    
     static var previews: some View {
         MovieListView(movieListManager: MovieListManager(), isPresented: .constant(true))
     }

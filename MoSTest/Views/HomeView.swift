@@ -24,12 +24,17 @@ struct HomeView: View {
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
             .navigationBarItems(trailing: EditButton())
         }
-        
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(movieListManager: MovieListManager())
+        let emptyManager = MovieListManager()
+        let nonEmptyManager = MovieListManager().example
+        
+        Group {
+            HomeView(movieListManager: emptyManager)
+            HomeView(movieListManager: nonEmptyManager)
+        }
     }
 }
