@@ -11,31 +11,15 @@ struct HomeView: View {
     
     @ObservedObject var movieListManager: MovieListManager
     @State private var isPresented = false
-    
-//    var movieListView: some View {
-//
-//    }
-    
-    var emptyListView: some View {
-        VStack {
-            Spacer()
-            Text("No Data")
-            Spacer()
-            Button(action: {
-                movieListManager.loadMovies()
-            }) {
-                Text("Fetch Data")
-            }
-        }
-    }
-    
+
     var body: some View {
         NavigationView {
             VStack {
-            
-                } else {
-                    emptyListView
-                }
+                //Home View will show the MovieListView as long as there are items in movieListManager.imdbResponse.items
+                //if there are no elements EmptyMovieListView will be shown
+                
+                MovieListView(movieListManager: movieListManager, isPresented: $isPresented)
+                EmptyMovieListView(movieListManager: movieListManager)
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
             .navigationBarItems(trailing: EditButton())
