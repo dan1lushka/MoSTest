@@ -35,9 +35,7 @@ struct MovieListView: View {
 }
 
 struct MovieListView_Previews: PreviewProvider {
-    let mlm = MovieListManager()
-    
     static var previews: some View {
-        MovieListView(movieListManager: MovieListManager(), isPresented: .constant(true))
+        MovieListView(movieListManager: MovieListManager().example, isPresented: .constant(true))
     }
 }
