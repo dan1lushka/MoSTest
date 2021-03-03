@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieListView: View {
     
     @ObservedObject var movieListManager: MovieListManager
-    @Binding private var isPresented: Bool
+    @Binding var isPresented: Bool
     
     var body: some View {
         if movieListManager.idbResponse.items.count > 0 {
@@ -35,10 +35,9 @@ struct MovieListView: View {
 }
 
 struct MovieListView_Previews: PreviewProvider {
-    
-    @State var isPresentedExample = true
-    
+    let mlm = MovieListManager()
+
     static var previews: some View {
-        MovieListView(movieListManager: MovieListManager.init(), isPresented: isPresentedExample)
+        MovieListView(movieListManager: MovieListManager(), isPresented: .constant(true))
     }
 }
