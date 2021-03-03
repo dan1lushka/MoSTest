@@ -11,8 +11,20 @@ class MovieListManager: ObservableObject {
     
     @Published var imdbResponse = IMDBResponse(items: [Item](), errorMessage: "")
 
-    var example: IMDBResponse {
-        return IMDBResponse(items: [Item(id: "tt0111161", rank: "1", title: "aadada", fullTitle: "adawdawd", year: "1212", image: "square.fill", crew: "aaaa", imDbRating: "12", imDbRatingCount: "aa")], errorMessage: "")
+    var example: MovieListManager {
+        let example = MovieListManager()
+        example.imdbResponse = IMDBResponse(items: [Item(id: "tt0111161",
+                                                         rank: "1",
+                                                         title: "aadada",
+                                                         fullTitle: "adawdawd",
+                                                         year: "1212",
+                                                         image: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX128_CR0,1,128,176_AL_.jpg",
+                                                         crew: "aaaa",
+                                                         imDbRating: "12",
+                                                         imDbRatingCount: "aa")
+                                                    ],
+                                            errorMessage: "")
+        return example
     }
     
     init() {
