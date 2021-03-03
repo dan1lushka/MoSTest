@@ -18,6 +18,7 @@
 		C838B0F425EAC8D400A68BD0 /* URLImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0F325EAC8D400A68BD0 /* URLImageManager.swift */; };
 		C838B0F725EAF8D300A68BD0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0F625EAF8D300A68BD0 /* DetailView.swift */; };
 		C88F445F25EFF671008FB627 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F445E25EFF671008FB627 /* MovieListView.swift */; };
+		C88F446325F0016F008FB627 /* EmptyMovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F446225F0016F008FB627 /* EmptyMovieListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C838B0F325EAC8D400A68BD0 /* URLImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageManager.swift; sourceTree = "<group>"; };
 		C838B0F625EAF8D300A68BD0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		C88F445E25EFF671008FB627 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		C88F446225F0016F008FB627 /* EmptyMovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMovieListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				C838B0F025EAC81000A68BD0 /* URLImageView.swift */,
 				C838B0F625EAF8D300A68BD0 /* DetailView.swift */,
 				C88F445E25EFF671008FB627 /* MovieListView.swift */,
+				C88F446225F0016F008FB627 /* EmptyMovieListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				C838B0F125EAC81000A68BD0 /* URLImageView.swift in Sources */,
 				C838B0C425EA800200A68BD0 /* MoSTestApp.swift in Sources */,
 				C838B0DA25EA85D900A68BD0 /* IMDBResponse.swift in Sources */,
+				C88F446325F0016F008FB627 /* EmptyMovieListView.swift in Sources */,
 				C838B0E525EAAE3100A68BD0 /* MovieListRowView.swift in Sources */,
 				C838B0F425EAC8D400A68BD0 /* URLImageManager.swift in Sources */,
 			);
