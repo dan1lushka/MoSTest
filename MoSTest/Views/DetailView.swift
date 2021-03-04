@@ -30,7 +30,7 @@ struct DetailView: View {
                     Text(movieItem.fullTitle)
                     UrlImageView(urlString: movieItem.image)
                         .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                        .scaledToFill()
+                        .scaledToFit()
                 }
             }
         }
@@ -47,6 +47,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(movieItem: Item(id: "1", rank: "1", title: "1", fullTitle: "1", year: "1", image: "1", crew: "1", imDbRating: "1", imDbRatingCount: "1"))
+        DetailView(movieItem: MovieListManager().example.imdbResponse.items.first!)
     }
 }
