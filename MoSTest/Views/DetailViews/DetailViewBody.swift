@@ -11,20 +11,44 @@ struct DetailViewBody: View {
     
     @Binding var isViewUp: Bool
     var movieItem: Item
-    
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading) {
-                UrlImageView(urlString: movieItem.image)
-                    .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                    .scaledToFill()
-                Text(movieItem.fullTitle)
-                Text("Rating: \(movieItem.imDbRating)")
-                Text(movieItem.crew)
-                Spacer()
+        
+        if isViewUp {
+            GeometryReader { geometry in
+                VStack(alignment: .leading) {
+                    UrlImageView(urlString: movieItem.image)
+                        .frame(width: geometry.size.width, height: geometry.size.height / 3)
+                        .scaledToFill()
+                    Text(movieItem.fullTitle)
+                        .font(.title)
+                    Text("Rating: \(movieItem.imDbRating)")
+                        .font(.headline)
+                    Text(movieItem.crew)
+                        .font(.body)
+                    Spacer()
+                }
+            }
+        } else {
+            GeometryReader { geometry in
+                VStack(alignment: .leading) {
+                    Spacer()
+                    Text(movieItem.crew)
+                        .font(.body)
+                    Text("Rating: \(movieItem.imDbRating)")
+                        .font(.headline)
+                    Text(movieItem.fullTitle)
+                        .font(.title)
+                    UrlImageView(urlString: movieItem.image)
+                        .frame(width: geometry.size.width, height: geometry.size.height / 3)
+                        .scaledToFill()
+                }
             }
         }
     }
+}
+
+struct detailViewCombiner {
+    var arr: [Any]
 }
 
 struct DetailViewBody_Previews: PreviewProvider {

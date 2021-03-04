@@ -15,9 +15,9 @@ struct DetailView: View {
     @State private var isViewUp = true
     
     var body: some View {
-        VStack {
-            DetailViewBody(isViewUp: $isViewUp, movieItem: movieItem)
-        }
+       
+        DetailViewBody(isViewUp: $isViewUp, movieItem: movieItem)
+        
         .navigationTitle(Text("\(movieItem.title)"))
             .navigationBarItems(trailing: Button(action: {
                 withAnimation(.linear(duration: 2)) {
