@@ -57,6 +57,7 @@ class MovieListManager: ObservableObject {
                 }
             }
             print("Fetch failed \(error?.localizedDescription ?? "Unknown error")")
+            self.imdbResponse.errorMessage = error?.localizedDescription ?? "Unknown error"
         }.resume()
     }
     
