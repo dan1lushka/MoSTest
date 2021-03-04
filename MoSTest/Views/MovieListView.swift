@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieListView: View {
     
     @ObservedObject var movieListManager: MovieListManager
-    @Binding var isPresented: Bool
+    @Binding var isDetailViewPresented: Bool
     @Environment(\.editMode) private var editMode
     @State private var isInEditMode = false
     
@@ -19,8 +19,8 @@ struct MovieListView: View {
             List {
                 ForEach(movieListManager.imdbResponse.items) { movie in
                     ZStack {
-                        MovieListRowView(item: movie)
-                        NavigationLink(destination: DetailView(movieItem: movie), isActive: $isPresented) {
+                        MovieListRowView(item: movie, isInEditMode: $isInEditMode)
+                        NavigationLink(destination: DetailView(movieItem: movie), isActive: $isDetailViewPresented) {
                         }
                     }
                 }
@@ -45,6 +45,6 @@ struct MovieListView: View {
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(movieListManager: MovieListManager().example, isPresented: .constant(true))
+        MovieListView(movieListManager: MovieListManager().example, isDetailViewPresented: .constant(true))
     }
 }
