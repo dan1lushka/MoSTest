@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var movieListManager: MovieListManager
-    @State private var isPresented = false
+    @State private var isDetailViewPresented = false
 
     var body: some View {
         NavigationView {
@@ -18,7 +18,7 @@ struct HomeView: View {
                 //Home View will show the MovieListView as long as there are items in movieListManager.imdbResponse.items
                 //if there are no elements EmptyMovieListView will be shown
                 
-                MovieListView(movieListManager: movieListManager, isPresented: $isPresented)
+                MovieListView(movieListManager: movieListManager, isPresented: $isDetailViewPresented)
                 EmptyMovieListView(movieListManager: movieListManager)
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
