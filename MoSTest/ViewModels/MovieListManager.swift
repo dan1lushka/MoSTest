@@ -10,7 +10,7 @@ import SwiftUI
 class MovieListManager: ObservableObject {
     
     @Published var imdbResponse = IMDBResponse(items: [Item](), errorMessage: "")
-
+    
     var example: MovieListManager {
         let example = MovieListManager()
         example.imdbResponse = IMDBResponse(items: [Item(id: "tt0111161",
@@ -21,8 +21,16 @@ class MovieListManager: ObservableObject {
                                                          image: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX128_CR0,1,128,176_AL_.jpg",
                                                          crew: "crew members",
                                                          imDbRating: "12",
-                                                         imDbRatingCount: "0")
-                                                    ],
+                                                         imDbRatingCount: "0"),
+                                                    Item(id: "tt0111161",
+                                                         rank: "1",
+                                                         title: "title1",
+                                                         fullTitle: "full title1",
+                                                         year: "2021",
+                                                         image: "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX128_CR0,3,128,176_AL_.jpg",
+                                                         crew: "crew members1",
+                                                         imDbRating: "12",
+                                                         imDbRatingCount: "0")],
                                             errorMessage: "")
         return example
     }
