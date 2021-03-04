@@ -7,46 +7,32 @@
 
 import SwiftUI
 
+
+
 struct DetailView: View {
     var movieItem: Item
     
     @State private var isViewUp = true
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading) {
-                if isViewUp {
-                    UrlImageView(urlString: movieItem.image)
-                        .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                        .scaledToFill()
-                    Text(movieItem.fullTitle)
-                    Text("Rating: \(movieItem.imDbRating)")
-                    Text(movieItem.crew)
-                    Spacer()
-                } else {
-                    Spacer()
-                    Text(movieItem.crew)
-                    Text("Rating: \(movieItem.imDbRating)")
-                    Text(movieItem.fullTitle)
-                    UrlImageView(urlString: movieItem.image)
-                        .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                        .scaledToFit()
-                }
-            }
+        VStack {
+            DetailViewBody(isViewUp: $isViewUp, movieItem: movieItem)
         }
         .navigationTitle(Text("\(movieItem.title)"))
-        .navigationBarItems(trailing: Button(action: {
-            withAnimation(.linear(duration: 2)) {
-                isViewUp.toggle()
-            }
-        }, label: {
-            Image("Icon-ArrowsUpDown")
-        }))
+            .navigationBarItems(trailing: Button(action: {
+                withAnimation(.linear(duration: 2)) {
+                    isViewUp.toggle()
+                }
+            }, label: {
+                Image("Icon-ArrowsUpDown")
+            }))
     }
 }
+
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(movieItem: MovieListManager().example.imdbResponse.items.first!)
     }
 }
+

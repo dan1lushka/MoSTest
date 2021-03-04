@@ -20,6 +20,7 @@
 		C88F445F25EFF671008FB627 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F445E25EFF671008FB627 /* MovieListView.swift */; };
 		C88F446325F0016F008FB627 /* EmptyMovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F446225F0016F008FB627 /* EmptyMovieListView.swift */; };
 		C899D76B25F071C300EDCC55 /* ShowViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C899D76A25F071C300EDCC55 /* ShowViewExtension.swift */; };
+		C899D76F25F079D600EDCC55 /* DetailViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C899D76E25F079D600EDCC55 /* DetailViewBody.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C88F445E25EFF671008FB627 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		C88F446225F0016F008FB627 /* EmptyMovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMovieListView.swift; sourceTree = "<group>"; };
 		C899D76A25F071C300EDCC55 /* ShowViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewExtension.swift; sourceTree = "<group>"; };
+		C899D76E25F079D600EDCC55 /* DetailViewBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewBody.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C838B0F625EAF8D300A68BD0 /* DetailView.swift */,
+				C899D76E25F079D600EDCC55 /* DetailViewBody.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				C838B0C625EA800200A68BD0 /* HomeView.swift in Sources */,
 				C838B0F125EAC81000A68BD0 /* URLImageView.swift in Sources */,
 				C838B0C425EA800200A68BD0 /* MoSTestApp.swift in Sources */,
+				C899D76F25F079D600EDCC55 /* DetailViewBody.swift in Sources */,
 				C838B0DA25EA85D900A68BD0 /* IMDBResponse.swift in Sources */,
 				C88F446325F0016F008FB627 /* EmptyMovieListView.swift in Sources */,
 				C838B0E525EAAE3100A68BD0 /* MovieListRowView.swift in Sources */,
