@@ -34,7 +34,7 @@ struct MovieListRowView: View {
                     .frame(width: 75, height: 75)
                     .cornerRadius(15)
                     .padding()
-
+                
                 VStack(alignment: .leading, spacing: 20) {
                     Text(item.title)
                         .font(.headline)
@@ -42,14 +42,13 @@ struct MovieListRowView: View {
                 }
                 
                 Spacer()
-
-                Button {} label: {
-                    DetailsImage(showDetails: $showCrewDetails)
-                }
-                .onTapGesture {
-                    showCrewDetails.toggle()
-                }
-                .padding()
+                
+                DetailsImage(showDetails: $showCrewDetails)
+                    .padding()
+                    .onTapGesture {
+                        showCrewDetails.toggle()
+                    }
+                    
             }
             
             if showCrewDetails {
