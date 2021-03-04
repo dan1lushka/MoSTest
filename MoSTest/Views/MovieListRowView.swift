@@ -54,6 +54,7 @@ struct MovieListRowView: View {
             
             if showCrewDetails {
                 Text(item.crew)
+                    .padding()
             }
         }
     }

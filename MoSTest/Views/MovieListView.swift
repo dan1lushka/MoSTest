@@ -28,8 +28,12 @@ struct MovieListView: View {
                 .onMove { (indeces, newOffset) in
                     movieListManager.imdbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
                 }
-                .background(Color.gray)
-                .cornerRadius(15)
+                .listRowBackground(Color.gray
+                                    .clipped()
+                                    .cornerRadius(10)
+                                    .padding(5)
+                                    )
+                
             }
             
         }
