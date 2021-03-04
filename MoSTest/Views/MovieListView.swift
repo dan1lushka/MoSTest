@@ -17,7 +17,6 @@ struct MovieListView: View {
             List {
                 ForEach(movieListManager.imdbResponse.items) { movie in
                     ZStack {
-                        Color.gray
                         MovieListRowView(item: movie)
                         NavigationLink(destination: DetailView(movieItem: movie), isActive: $isPresented) {
                         }
@@ -29,7 +28,10 @@ struct MovieListView: View {
                 .onMove { (indeces, newOffset) in
                     movieListManager.imdbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
                 }
+                .background(Color.gray)
+                .cornerRadius(15)
             }
+            
         }
     }
 }

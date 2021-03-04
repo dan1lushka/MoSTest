@@ -7,13 +7,17 @@
 
 import SwiftUI
 
-struct DetailsButton: View {
+struct DetailsImage: View {
+    
+    @Binding var showDetails: Bool
+    
     var body: some View {
         Image("Icon-ChevronThinDown")
+            .frame(width: 20, height: 20, alignment: .center)
             .clipShape(Circle())
             .padding(2)
             .overlay(Circle().stroke(Color.black, lineWidth: 1))
-            .rotationEffect(.degrees(180))
+            .rotationEffect(.degrees(showDetails ? 180 : 0))
     }
 }
 
@@ -23,29 +27,29 @@ struct MovieListRowView: View {
     @State private var showCrewDetails = false
     
     var body: some View {
-        VStack {
-            HStack {
+        VStack(alignment: .center) {
+            HStack(alignment: .center) {
                 UrlImageView(urlString: item.image)
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                VStack {
+                    .scaledToFill()
+                    .frame(width: 75, height: 75)
+                    .cornerRadius(15)
+                    .padding()
+
+                VStack(alignment: .leading, spacing: 20) {
                     Text(item.title)
+                        .font(.headline)
                     Text("Rating: \(item.imDbRating)")
                 }
                 
+                Spacer()
+
                 Button {} label: {
-                    if !showCrewDetails {
-                        Image("Icon-ChevronThinDown")
-                            .clipShape(Circle())
-                            .padding(2)
-                            .overlay(Circle().stroke(Color.black, lineWidth: 1))
-                    } else {
-                        DetailsButton()
-                    }
+                    DetailsImage(showDetails: $showCrewDetails)
                 }
                 .onTapGesture {
                     showCrewDetails.toggle()
                 }
+                .padding()
             }
             
             if showCrewDetails {
