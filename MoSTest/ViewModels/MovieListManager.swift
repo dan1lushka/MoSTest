@@ -15,13 +15,13 @@ class MovieListManager: ObservableObject {
         let example = MovieListManager()
         example.imdbResponse = IMDBResponse(items: [Item(id: "tt0111161",
                                                          rank: "1",
-                                                         title: "aadada",
-                                                         fullTitle: "adawdawd",
-                                                         year: "1212",
+                                                         title: "title",
+                                                         fullTitle: "full title",
+                                                         year: "2021",
                                                          image: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX128_CR0,1,128,176_AL_.jpg",
-                                                         crew: "aaaa",
+                                                         crew: "crew members",
                                                          imDbRating: "12",
-                                                         imDbRatingCount: "aa")
+                                                         imDbRatingCount: "0")
                                                     ],
                                             errorMessage: "")
         return example
