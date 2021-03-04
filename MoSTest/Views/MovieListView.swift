@@ -11,6 +11,8 @@ struct MovieListView: View {
     
     @ObservedObject var movieListManager: MovieListManager
     @Binding var isPresented: Bool
+    @Environment(\.editMode) private var editMode
+    @State private var isInEditMode = false
     
     var body: some View {
         if movieListManager.imdbResponse.items.count > 0 {
@@ -28,14 +30,15 @@ struct MovieListView: View {
                 .onMove { (indeces, newOffset) in
                     movieListManager.imdbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
                 }
+                .onChange(of: editMode!.wrappedValue, perform: { value in
+                    isInEditMode.toggle()
+                })
                 .listRowBackground(Color.gray
                                     .clipped()
                                     .cornerRadius(10)
-                                    .padding(5)
-                                    )
+                                    .padding(5))
                 
             }
-            
         }
     }
 }

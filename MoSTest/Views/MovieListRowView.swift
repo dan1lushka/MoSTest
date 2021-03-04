@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailsImage: View {
     
     @Binding var showDetails: Bool
+    @Binding var isInEditMode: Bool
     
     var body: some View {
         Image("Icon-ChevronThinDown")
@@ -18,6 +19,7 @@ struct DetailsImage: View {
             .padding(2)
             .overlay(Circle().stroke(Color.black, lineWidth: 1))
             .rotationEffect(.degrees(showDetails ? 180 : 0))
+            
     }
 }
 
@@ -25,6 +27,7 @@ struct MovieListRowView: View {
     var item: Item
     
     @State private var showCrewDetails = false
+    @Binding var isInEditMode: Bool
     
     var body: some View {
         VStack(alignment: .center) {
@@ -43,12 +46,11 @@ struct MovieListRowView: View {
                 
                 Spacer()
                 
-                DetailsImage(showDetails: $showCrewDetails)
+                DetailsImage(showDetails: $showCrewDetails, isInEditMode: $isInEditMode)
                     .padding()
                     .onTapGesture {
                         showCrewDetails.toggle()
                     }
-                    
             }
             
             if showCrewDetails {
@@ -56,12 +58,13 @@ struct MovieListRowView: View {
                     .padding()
             }
         }
+        
     }
 }
 
 struct MovieListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListRowView(item: MovieListManager().example.imdbResponse.items.first!)
+        MovieListRowView(item: MovieListManager().example.imdbResponse.items.first!, isInEditMode: .constant(false))
     }
 }
 
