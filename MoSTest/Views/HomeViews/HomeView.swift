@@ -18,7 +18,7 @@ struct HomeView: View {
                 //Home View will show the MovieListView as long as there are items in movieListManager.imdbResponse.items
                 //if there are no elements EmptyMovieListView will be shown
                 
-                MovieListView(movieListManager: movieListManager, isPresented: $isDetailViewPresented)
+                MovieListView(movieListManager: movieListManager, isDetailViewPresented: $isDetailViewPresented)
                 EmptyMovieListView(movieListManager: movieListManager)
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)

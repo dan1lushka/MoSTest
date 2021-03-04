@@ -12,14 +12,14 @@ struct MovieListView: View {
     @ObservedObject var movieListManager: MovieListManager
     @Binding var isDetailViewPresented: Bool
     @Environment(\.editMode) private var editMode
-    @State private var isInEditMode = false
+    @State private var showCrewDetailsButton = true
     
     var body: some View {
         if movieListManager.imdbResponse.items.count > 0 {
             List {
                 ForEach(movieListManager.imdbResponse.items) { movie in
                     ZStack {
-                        MovieListRowView(item: movie, isInEditMode: $isInEditMode)
+                        MovieListRowView(item: movie, showCrewDetailsButton: $showCrewDetailsButton)
                         NavigationLink(destination: DetailView(movieItem: movie), isActive: $isDetailViewPresented) {
                         }
                     }
@@ -31,7 +31,11 @@ struct MovieListView: View {
                     movieListManager.imdbResponse.items.move(fromOffsets: indeces, toOffset: newOffset)
                 }
                 .onChange(of: editMode!.wrappedValue, perform: { value in
-                    isInEditMode.toggle()
+                    if value.isEditing {
+                        showCrewDetailsButton = false
+                    } else {
+                        showCrewDetailsButton = true
+                    }
                 })
                 .listRowBackground(Color.gray
                                     .clipped()
