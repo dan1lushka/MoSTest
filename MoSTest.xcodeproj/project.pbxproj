@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C81F1CBF25F3BE0D00616370 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F1CBE25F3BE0D00616370 /* ErrorView.swift */; };
 		C838B0C425EA800200A68BD0 /* MoSTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0C325EA800200A68BD0 /* MoSTestApp.swift */; };
 		C838B0C625EA800200A68BD0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0C525EA800200A68BD0 /* HomeView.swift */; };
 		C838B0C825EA800300A68BD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C838B0C725EA800300A68BD0 /* Assets.xcassets */; };
@@ -17,13 +18,25 @@
 		C838B0F125EAC81000A68BD0 /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0F025EAC81000A68BD0 /* URLImageView.swift */; };
 		C838B0F425EAC8D400A68BD0 /* URLImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0F325EAC8D400A68BD0 /* URLImageManager.swift */; };
 		C838B0F725EAF8D300A68BD0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838B0F625EAF8D300A68BD0 /* DetailView.swift */; };
+		C838FF6025F0E6D400CD9818 /* MoSTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838FF5F25F0E6D400CD9818 /* MoSTestTests.swift */; };
 		C88F445F25EFF671008FB627 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F445E25EFF671008FB627 /* MovieListView.swift */; };
 		C88F446325F0016F008FB627 /* EmptyMovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F446225F0016F008FB627 /* EmptyMovieListView.swift */; };
 		C899D76B25F071C300EDCC55 /* ShowViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C899D76A25F071C300EDCC55 /* ShowViewExtension.swift */; };
 		C899D76F25F079D600EDCC55 /* DetailViewBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C899D76E25F079D600EDCC55 /* DetailViewBody.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C838FF6225F0E6D400CD9818 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C838B0B825EA800200A68BD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C838B0BF25EA800200A68BD0;
+			remoteInfo = MoSTest;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C81F1CBE25F3BE0D00616370 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C838B0C025EA800200A68BD0 /* MoSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C838B0C325EA800200A68BD0 /* MoSTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoSTestApp.swift; sourceTree = "<group>"; };
 		C838B0C525EA800200A68BD0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -36,6 +49,9 @@
 		C838B0F025EAC81000A68BD0 /* URLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
 		C838B0F325EAC8D400A68BD0 /* URLImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageManager.swift; sourceTree = "<group>"; };
 		C838B0F625EAF8D300A68BD0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		C838FF5D25F0E6D400CD9818 /* MoSTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoSTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C838FF5F25F0E6D400CD9818 /* MoSTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoSTestTests.swift; sourceTree = "<group>"; };
+		C838FF6125F0E6D400CD9818 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C88F445E25EFF671008FB627 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		C88F446225F0016F008FB627 /* EmptyMovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMovieListView.swift; sourceTree = "<group>"; };
 		C899D76A25F071C300EDCC55 /* ShowViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewExtension.swift; sourceTree = "<group>"; };
@@ -50,6 +66,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C838FF5A25F0E6D400CD9818 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -57,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				C838B0C225EA800200A68BD0 /* MoSTest */,
+				C838FF5E25F0E6D400CD9818 /* MoSTestTests */,
 				C838B0C125EA800200A68BD0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				C838B0C025EA800200A68BD0 /* MoSTest.app */,
+				C838FF5D25F0E6D400CD9818 /* MoSTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,7 +130,6 @@
 				C899D76925F071A200EDCC55 /* Util */,
 				C899D76725F06E3E00EDCC55 /* DetailViews */,
 				C899D76625F06E1600EDCC55 /* HomeViews */,
-				C838B0F025EAC81000A68BD0 /* URLImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +143,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		C838FF5E25F0E6D400CD9818 /* MoSTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				C838FF5F25F0E6D400CD9818 /* MoSTestTests.swift */,
+				C838FF6125F0E6D400CD9818 /* Info.plist */,
+			);
+			path = MoSTestTests;
+			sourceTree = "<group>";
+		};
 		C899D76625F06E1600EDCC55 /* HomeViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +159,7 @@
 				C838B0E425EAAE3100A68BD0 /* MovieListRowView.swift */,
 				C88F445E25EFF671008FB627 /* MovieListView.swift */,
 				C88F446225F0016F008FB627 /* EmptyMovieListView.swift */,
+				C81F1CBE25F3BE0D00616370 /* ErrorView.swift */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -143,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				C899D76A25F071C300EDCC55 /* ShowViewExtension.swift */,
+				C838B0F025EAC81000A68BD0 /* URLImageView.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -167,6 +202,24 @@
 			productReference = C838B0C025EA800200A68BD0 /* MoSTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C838FF5C25F0E6D400CD9818 /* MoSTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C838FF6625F0E6D400CD9818 /* Build configuration list for PBXNativeTarget "MoSTestTests" */;
+			buildPhases = (
+				C838FF5925F0E6D400CD9818 /* Sources */,
+				C838FF5A25F0E6D400CD9818 /* Frameworks */,
+				C838FF5B25F0E6D400CD9818 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C838FF6325F0E6D400CD9818 /* PBXTargetDependency */,
+			);
+			name = MoSTestTests;
+			productName = MoSTestTests;
+			productReference = C838FF5D25F0E6D400CD9818 /* MoSTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -178,6 +231,10 @@
 				TargetAttributes = {
 					C838B0BF25EA800200A68BD0 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					C838FF5C25F0E6D400CD9818 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = C838B0BF25EA800200A68BD0;
 					};
 				};
 			};
@@ -195,6 +252,7 @@
 			projectRoot = "";
 			targets = (
 				C838B0BF25EA800200A68BD0 /* MoSTest */,
+				C838FF5C25F0E6D400CD9818 /* MoSTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -206,6 +264,13 @@
 			files = (
 				C838B0CB25EA800300A68BD0 /* Preview Assets.xcassets in Resources */,
 				C838B0C825EA800300A68BD0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C838FF5B25F0E6D400CD9818 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,11 +292,28 @@
 				C838B0DA25EA85D900A68BD0 /* IMDBResponse.swift in Sources */,
 				C88F446325F0016F008FB627 /* EmptyMovieListView.swift in Sources */,
 				C838B0E525EAAE3100A68BD0 /* MovieListRowView.swift in Sources */,
+				C81F1CBF25F3BE0D00616370 /* ErrorView.swift in Sources */,
 				C838B0F425EAC8D400A68BD0 /* URLImageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C838FF5925F0E6D400CD9818 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C838FF6025F0E6D400CD9818 /* MoSTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C838FF6325F0E6D400CD9818 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C838B0BF25EA800200A68BD0 /* MoSTest */;
+			targetProxy = C838FF6225F0E6D400CD9818 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C838B0CD25EA800300A68BD0 /* Debug */ = {
@@ -394,6 +476,46 @@
 			};
 			name = Release;
 		};
+		C838FF6425F0E6D400CD9818 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P92M2Q4MMM;
+				INFOPLIST_FILE = MoSTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.DanielRybak.MoSTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoSTest.app/MoSTest";
+			};
+			name = Debug;
+		};
+		C838FF6525F0E6D400CD9818 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P92M2Q4MMM;
+				INFOPLIST_FILE = MoSTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.DanielRybak.MoSTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoSTest.app/MoSTest";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -411,6 +533,15 @@
 			buildConfigurations = (
 				C838B0D025EA800300A68BD0 /* Debug */,
 				C838B0D125EA800300A68BD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C838FF6625F0E6D400CD9818 /* Build configuration list for PBXNativeTarget "MoSTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C838FF6425F0E6D400CD9818 /* Debug */,
+				C838FF6525F0E6D400CD9818 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

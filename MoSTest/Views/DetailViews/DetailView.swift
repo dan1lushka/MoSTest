@@ -32,7 +32,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(movieItem: MovieListManager().example.imdbResponse.items.first!)
+        DetailView(movieItem: MovieListManager().exampleWithData.imdbResponse.items.first!)
     }
 }
 

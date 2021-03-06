@@ -20,6 +20,7 @@ struct HomeView: View {
                 
                 MovieListView(movieListManager: movieListManager, isDetailViewPresented: $isDetailViewPresented)
                 EmptyMovieListView(movieListManager: movieListManager)
+                ErrorView(movieListManager: movieListManager)
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
             .navigationBarItems(trailing: EditButton())
@@ -30,11 +31,13 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         let emptyManager = MovieListManager()
-        let nonEmptyManager = MovieListManager().example
+        let nonEmptyManager = MovieListManager().exampleWithData
+        let errorManager = MovieListManager().exampleWithError
         
         Group {
             HomeView(movieListManager: emptyManager)
             HomeView(movieListManager: nonEmptyManager)
+            HomeView(movieListManager: errorManager)
         }
     }
 }

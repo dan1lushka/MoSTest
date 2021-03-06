@@ -63,7 +63,7 @@ struct MovieListRowView: View {
 
 struct MovieListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListRowView(item: MovieListManager().example.imdbResponse.items.first!, showCrewDetailsButton: .constant(false))
+        MovieListRowView(item: MovieListManager().exampleWithData.imdbResponse.items.first!, showCrewDetailsButton: .constant(false))
     }
 }
 

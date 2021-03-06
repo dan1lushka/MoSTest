@@ -53,6 +53,6 @@ struct detailViewCombiner {
 
 struct DetailViewBody_Previews: PreviewProvider {
     static var previews: some View {
-        DetailViewBody(isViewUp: .constant(true), movieItem: MovieListManager().example.imdbResponse.items.first!)
+        DetailViewBody(isViewUp: .constant(true), movieItem: MovieListManager().exampleWithData.imdbResponse.items.first!)
     }
 }
