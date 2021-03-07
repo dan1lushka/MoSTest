@@ -20,7 +20,7 @@ struct DetailView: View {
         
         .navigationTitle(Text("\(movieItem.title)"))
             .navigationBarItems(trailing: Button(action: {
-                withAnimation(.linear(duration: 2)) {
+                withAnimation(.linear(duration: 1)) {
                     isViewUp.toggle()
                 }
             }, label: {
