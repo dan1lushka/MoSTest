@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct TopDetailBodyView: View {
+struct DetailViewBody: View {
     
     @Binding var isViewUp: Bool
     var movieItem: Item
     
-    var body: some View {
+    var topDetailBodyView: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: 10) {
                 UrlImageView(urlString: movieItem.image)
@@ -30,14 +30,8 @@ struct TopDetailBodyView: View {
             }
         }
     }
-}
-
-struct BottomDetailBodyView: View {
     
-    @Binding var isViewUp: Bool
-    var movieItem: Item
-    
-    var body: some View {
+    var bottomDetailBodyView: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
                 Spacer()
@@ -53,18 +47,12 @@ struct BottomDetailBodyView: View {
             }
         }
     }
-}
-
-struct DetailViewBody: View {
-    
-    @Binding var isViewUp: Bool
-    var movieItem: Item
     
     var body: some View {
         if isViewUp {
-            TopDetailBodyView(isViewUp: $isViewUp, movieItem: movieItem)
+            topDetailBodyView
         } else {
-            BottomDetailBodyView(isViewUp: $isViewUp, movieItem: movieItem)
+            bottomDetailBodyView
         }
     }
 }
