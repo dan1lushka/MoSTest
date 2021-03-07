@@ -23,7 +23,7 @@ struct HomeView: View {
                 ErrorView(movieListManager: movieListManager)
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
-            .navigationBarItems(trailing: EditButton())
+            .navigationBarItems(leading: EditButton())
         }
     }
 }
