@@ -35,12 +35,14 @@ struct DetailViewBody: View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
                 Spacer()
+                VStack(alignment: .leading, spacing: 10) {
                 Text(movieItem.crew)
                     .font(.body)
                 Text("Rating: \(movieItem.imDbRating)")
                     .font(.headline)
                 Text(movieItem.fullTitle)
                     .font(.title)
+                }
                 UrlImageView(urlString: movieItem.image)
                     .frame(width: geometry.size.width, height: geometry.size.height / 3)
                     .scaledToFill()
