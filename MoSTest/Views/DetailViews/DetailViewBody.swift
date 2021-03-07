@@ -7,44 +7,64 @@
 
 import SwiftUI
 
+struct TopDetailBodyView: View {
+    
+    @Binding var isViewUp: Bool
+    var movieItem: Item
+    
+    var body: some View {
+        GeometryReader { geometry in
+            VStack(alignment: .leading, spacing: 10) {
+                UrlImageView(urlString: movieItem.image)
+                    .frame(width: geometry.size.width, height: geometry.size.height / 3)
+                    .scaledToFill()
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(movieItem.fullTitle)
+                        .font(.title)
+                    Text("Rating: \(movieItem.imDbRating)")
+                        .font(.headline)
+                    Text(movieItem.crew)
+                        .font(.body)
+                }
+                .padding()
+            }
+        }
+    }
+}
+
+struct BottomDetailBodyView: View {
+    
+    @Binding var isViewUp: Bool
+    var movieItem: Item
+    
+    var body: some View {
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                Spacer()
+                Text(movieItem.crew)
+                    .font(.body)
+                Text("Rating: \(movieItem.imDbRating)")
+                    .font(.headline)
+                Text(movieItem.fullTitle)
+                    .font(.title)
+                UrlImageView(urlString: movieItem.image)
+                    .frame(width: geometry.size.width, height: geometry.size.height / 3)
+                    .scaledToFill()
+            }
+        }
+    }
+}
+
 struct DetailViewBody: View {
     
     @Binding var isViewUp: Bool
     var movieItem: Item
+    
     var body: some View {
-        
         if isViewUp {
-            GeometryReader { geometry in
-                VStack(alignment: .leading, spacing: 10) {
-                    UrlImageView(urlString: movieItem.image)
-                        .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                        .scaledToFill()
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(movieItem.fullTitle)
-                            .font(.title)
-                        Text("Rating: \(movieItem.imDbRating)")
-                            .font(.headline)
-                        Text(movieItem.crew)
-                            .font(.body)
-                    }
-                    .padding()
-                }
-            }
+            TopDetailBodyView(isViewUp: $isViewUp, movieItem: movieItem)
         } else {
-            GeometryReader { geometry in
-                VStack(alignment: .leading) {
-                    Spacer()
-                    Text(movieItem.crew)
-                        .font(.body)
-                    Text("Rating: \(movieItem.imDbRating)")
-                        .font(.headline)
-                    Text(movieItem.fullTitle)
-                        .font(.title)
-                    UrlImageView(urlString: movieItem.image)
-                        .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                        .scaledToFill()
-                }
-            }
+            BottomDetailBodyView(isViewUp: $isViewUp, movieItem: movieItem)
         }
     }
 }
