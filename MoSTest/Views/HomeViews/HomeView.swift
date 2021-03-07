@@ -15,12 +15,14 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                //Home View will show the MovieListView as long as there are items in movieListManager.imdbResponse.items
-                //if there are no elements EmptyMovieListView will be shown
-                
-                MovieListView(movieListManager: movieListManager, isDetailViewPresented: $isDetailViewPresented)
-                EmptyMovieListView(movieListManager: movieListManager)
-                ErrorView(movieListManager: movieListManager)
+                switch movieListManager.state {
+                case .empty:
+                    EmptyMovieListView(movieListManager: movieListManager)
+                case .withData:
+                    MovieListView(movieListManager: movieListManager, isDetailViewPresented: $isDetailViewPresented)
+                case .withError:
+                    ErrorView(movieListManager: movieListManager)
+                }
             }
             .navigationBarTitle(Text("Top Movies"), displayMode: .inline)
             .navigationBarItems(leading: EditButton())
@@ -31,8 +33,8 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         let emptyManager = MovieListManager()
-        let nonEmptyManager = MovieListManager().exampleWithData
-        let errorManager = MovieListManager().exampleWithError
+        let nonEmptyManager = MovieListManager.exampleWithData
+        let errorManager = MovieListManager.exampleWithError
         
         Group {
             HomeView(movieListManager: emptyManager)

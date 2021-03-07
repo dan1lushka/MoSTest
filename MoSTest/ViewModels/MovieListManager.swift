@@ -9,9 +9,18 @@ import SwiftUI
 
 class MovieListManager: ObservableObject {
     
+    enum MovieListManagerState {
+        case empty
+        case withError
+        case withData
+    }
+    
+    @Published var state: MovieListManagerState = .empty
     @Published var imdbResponse = IMDBResponse(items: [Item](), errorMessage: "")
     
-    var example: MovieListManager {
+    var url = "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r"
+    
+    static var exampleWithData: MovieListManager {
         let example = MovieListManager()
         example.imdbResponse = IMDBResponse(items: [Item(id: "tt0111161",
                                                          rank: "1",
@@ -32,6 +41,21 @@ class MovieListManager: ObservableObject {
                                                          imDbRating: "12",
                                                          imDbRatingCount: "0")],
                                             errorMessage: "")
+        example.state = .withData
+        return example
+    }
+    
+    static var exampleWithError: MovieListManager {
+        let example = MovieListManager()
+        example.imdbResponse = IMDBResponse(items: [Item](), errorMessage: "some error")
+        example.state = .withError
+        return example
+    }
+    
+    static var emptyExample: MovieListManager {
+        let example = MovieListManager()
+        example.imdbResponse = IMDBResponse(items: [Item](), errorMessage: "")
+        example.state = .empty
         return example
     }
     
@@ -40,9 +64,10 @@ class MovieListManager: ObservableObject {
     }
     
     func loadMovies() {
-        
-        guard let url = URL(string: "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r") else {
-            fatalError("invalid URL string")
+        guard let url = URL(string: self.url) else {
+            self.imdbResponse.errorMessage = "Invalid API URL"
+            self.state = .withError
+            return
         }
         
         let request = URLRequest(url: url)
@@ -52,18 +77,23 @@ class MovieListManager: ObservableObject {
                 if let decodedResponse = try? JSONDecoder().decode(IMDBResponse.self, from: data) {
                     DispatchQueue.main.async {
                         self.imdbResponse = decodedResponse
+                        self.state = .withData
                     }
                     return
                 }
             }
-            print("Fetch failed \(error?.localizedDescription ?? "Unknown error")")
             self.imdbResponse.errorMessage = error?.localizedDescription ?? "Unknown error"
+            self.state = .withError
         }.resume()
     }
     
     func delete(at indexSet: IndexSet) {
         for index in indexSet {
             imdbResponse.items.remove(at: index)
+            
+            if imdbResponse.items.count == 0 {
+                self.state = .empty
+            }
         }
     }
     
