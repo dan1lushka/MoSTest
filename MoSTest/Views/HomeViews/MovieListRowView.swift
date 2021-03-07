@@ -25,7 +25,7 @@ struct MovieListRowView: View {
     var item: Item
     
     @State private var showCrewDetails = false
-    @Binding  var showCrewDetailsButton: Bool
+    @Binding var showCrewDetailsButton: Bool
     
     var body: some View {
         VStack(alignment: .center) {
@@ -63,7 +63,7 @@ struct MovieListRowView: View {
 
 struct MovieListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListRowView(item: MovieListManager().exampleWithData.imdbResponse.items.first!, showCrewDetailsButton: .constant(false))
+        MovieListRowView(item: MovieListManager.exampleWithData.imdbResponse.items.first!, showCrewDetailsButton: .constant(false))
     }
 }
 

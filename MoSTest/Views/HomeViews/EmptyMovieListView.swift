@@ -13,23 +13,21 @@ struct EmptyMovieListView: View {
     
     var body: some View {
         VStack {
-            if movieListManager.imdbResponse.errorMessage == "" && movieListManager.imdbResponse.items.count == 0 {
-                    Spacer()
-                    Text("No Data")
+            Spacer()
+            Text("No Data")
+                .font(.title)
+            Spacer()
+            HStack {
+                Button(action: {
+                    movieListManager.loadMovies()
+                }) {
+                    Text("Fetch Data")
                         .font(.title)
-                    Spacer()
-                HStack {
-                    Button(action: {
-                            movieListManager.loadMovies()
-                        }) {
-                            Text("Fetch Data")
-                                .font(.title)
-                                .clipShape(Rectangle())
-                                .frame(width: 300, height: 50, alignment: .center)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                    }
+                        .clipShape(Rectangle())
+                        .frame(width: 300, height: 50, alignment: .center)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
             }
         }

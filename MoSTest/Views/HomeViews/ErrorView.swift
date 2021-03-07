@@ -13,18 +13,16 @@ struct ErrorView: View {
     
     var body: some View {
         VStack {
-            if movieListManager.imdbResponse.errorMessage != "" && movieListManager.imdbResponse.items.count == 0 {
-                Text("Error!")
-                    .font(.title)
-                Text(movieListManager.imdbResponse.errorMessage)
-                    .font(.title)
-            }
+            Text("Error!")
+                .font(.title)
+            Text(movieListManager.imdbResponse.errorMessage)
+                .font(.title)
         }
     }
 }
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(movieListManager: MovieListManager().exampleWithError)
+        ErrorView(movieListManager: MovieListManager.exampleWithError)
     }
 }
