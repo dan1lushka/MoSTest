@@ -15,17 +15,19 @@ struct DetailViewBody: View {
         
         if isViewUp {
             GeometryReader { geometry in
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 10) {
                     UrlImageView(urlString: movieItem.image)
                         .frame(width: geometry.size.width, height: geometry.size.height / 3)
                         .scaledToFill()
-                    Text(movieItem.fullTitle)
-                        .font(.title)
-                    Text("Rating: \(movieItem.imDbRating)")
-                        .font(.headline)
-                    Text(movieItem.crew)
-                        .font(.body)
-                    Spacer()
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(movieItem.fullTitle)
+                            .font(.title)
+                        Text("Rating: \(movieItem.imDbRating)")
+                            .font(.headline)
+                        Text(movieItem.crew)
+                            .font(.body)
+                    }
+                    .padding()
                 }
             }
         } else {
