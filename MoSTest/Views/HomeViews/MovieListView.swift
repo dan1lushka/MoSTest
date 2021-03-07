@@ -13,16 +13,15 @@ struct MovieListView: View {
     @Binding var isDetailViewPresented: Bool
     @Environment(\.editMode) private var editMode
     @State private var showCrewDetailsButton = true
+    @State private var showBurgerMenuButton = false
     
     var body: some View {
         if movieListManager.imdbResponse.items.count > 0 {
             List {
                 ForEach(movieListManager.imdbResponse.items) { movie in
-                    ZStack {
-                        MovieListRowView(item: movie, showCrewDetailsButton: $showCrewDetailsButton)
                         NavigationLink(destination: DetailView(movieItem: movie), isActive: $isDetailViewPresented) {
+                            MovieListRowView(item: movie, showCrewDetailsButton: $showCrewDetailsButton)
                         }
-                    }
                 }
                 .onDelete(perform: { indexSet in
                     movieListManager.delete(at: indexSet)
@@ -33,8 +32,10 @@ struct MovieListView: View {
                 .onChange(of: editMode!.wrappedValue, perform: { value in
                     if value.isEditing {
                         showCrewDetailsButton = false
+                        showBurgerMenuButton = true
                     } else {
                         showCrewDetailsButton = true
+                        showBurgerMenuButton = false
                     }
                 })
                 .listRowBackground(Color.gray
