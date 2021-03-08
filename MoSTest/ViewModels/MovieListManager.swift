@@ -92,6 +92,7 @@ class MovieListManager: ObservableObject {
                     return
                 }
             }
+            
             self.errorMessage = error?.localizedDescription ?? "Unknown error"
             print("loadMovies has this error \(self.errorMessage)")
             self.state = .withError
