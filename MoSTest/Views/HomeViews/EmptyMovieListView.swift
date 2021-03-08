@@ -19,7 +19,7 @@ struct EmptyMovieListView: View {
             Spacer()
             HStack {
                 Button(action: {
-                    movieListManager.loadMovies()
+                    movieListManager.loadMovies(url: movieListManager.url)
                 }) {
                     Text("Fetch Data")
                         .font(.title)
@@ -36,6 +36,6 @@ struct EmptyMovieListView: View {
 
 struct EmptyMovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyMovieListView(movieListManager: MovieListManager())
+        EmptyMovieListView(movieListManager: MovieListManager(url: ""))
     }
 }

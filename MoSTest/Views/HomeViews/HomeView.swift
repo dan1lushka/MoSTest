@@ -32,7 +32,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        let emptyManager = MovieListManager()
+        let emptyManager = MovieListManager(url: "")
         let nonEmptyManager = MovieListManager.exampleWithData
         let errorManager = MovieListManager.exampleWithError
         

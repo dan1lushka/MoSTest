@@ -15,7 +15,7 @@ struct ErrorView: View {
         VStack {
             Text("Error!")
                 .font(.title)
-            Text(movieListManager.imdbResponse.errorMessage)
+            Text(movieListManager.errorMessage)
                 .font(.title)
         }
     }

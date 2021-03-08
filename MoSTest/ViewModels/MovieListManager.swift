@@ -18,10 +18,11 @@ class MovieListManager: ObservableObject {
     @Published var state: MovieListManagerState = .empty
     @Published var imdbResponse = IMDBResponse(items: [Item](), errorMessage: "")
     
-    var url = "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r"
+    var errorMessage = ""
+    var url: String
     
     static var exampleWithData: MovieListManager {
-        let example = MovieListManager()
+        let example = MovieListManager(url: "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r")
         example.imdbResponse = IMDBResponse(items: [Item(id: "tt0111161",
                                                          rank: "1",
                                                          title: "title",
@@ -46,26 +47,30 @@ class MovieListManager: ObservableObject {
     }
     
     static var exampleWithError: MovieListManager {
-        let example = MovieListManager()
-        example.imdbResponse = IMDBResponse(items: [Item](), errorMessage: "some error")
+        let example = MovieListManager(url: "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r")
+        example.imdbResponse = IMDBResponse(items: [Item](), errorMessage: "")
+        example.errorMessage = "some error"
         example.state = .withError
         return example
     }
     
     static var emptyExample: MovieListManager {
-        let example = MovieListManager()
+        let example = MovieListManager(url: "https://imdb-api.com/en/API/Top250Movies/k_x3hy019r")
         example.imdbResponse = IMDBResponse(items: [Item](), errorMessage: "")
         example.state = .empty
         return example
     }
     
-    init() {
-        loadMovies()
+    init(url: String) {
+        self.url = url
+        
+        loadMovies(url: url)
+        print("init has this error \(self.errorMessage)")
     }
     
-    func loadMovies() {
-        guard let url = URL(string: self.url) else {
-            self.imdbResponse.errorMessage = "Invalid API URL"
+    func loadMovies(url: String) {
+        guard let url = URL(string: url) else {
+            self.errorMessage = "Invalid URL"
             self.state = .withError
             return
         }
@@ -76,13 +81,19 @@ class MovieListManager: ObservableObject {
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(IMDBResponse.self, from: data) {
                     DispatchQueue.main.async {
-                        self.imdbResponse = decodedResponse
-                        self.state = .withData
+                        if decodedResponse.errorMessage == "" {
+                            self.imdbResponse = decodedResponse
+                            self.state = .withData
+                        } else {
+                            self.errorMessage = decodedResponse.errorMessage
+                            self.state = .withError
+                        }
                     }
                     return
                 }
             }
-            self.imdbResponse.errorMessage = error?.localizedDescription ?? "Unknown error"
+            self.errorMessage = error?.localizedDescription ?? "Unknown error"
+            print("loadMovies has this error \(self.errorMessage)")
             self.state = .withError
         }.resume()
     }
